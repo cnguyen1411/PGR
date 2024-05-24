@@ -1,0 +1,15 @@
+<!-- navbar.ejs -->
+<nav>
+  <div class="nav-container"></div>
+  <ul>
+    <li><a href="/" class="<%= page === 'home' ? 'active' : '' %>">Home</a></li>
+    <li><a href="/device/input" class="<%= page === 'input' ? 'active' : '' %>">Input Device Info</a></li>
+    <li><a href="/device/search" class="<%= page === 'search' ? 'active' : '' %>">Search Device</a></li>
+    <li><a href="/device/search_screen" class="<%= page === 'search_screen' ? 'active' : '' %>">Search Screen</a></li>
+    <li><a href="/device/list_devices" class="<%= page === 'list_devices' ? 'active' : '' %>">Show All Devices</a></li>
+    <li><a href="/device/list_screens" class="<%= page === 'list_screens' ? 'active' : '' %>">Show All Screens</a></li>
+    <% if (user) { %>
+      <li><a href="/auth/logout">Logout</a></li>
+    <% } %>
+</div>
+</nav>

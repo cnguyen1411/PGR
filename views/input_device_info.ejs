@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="/styles.css">
+  <title>Input Device Info</title>
+</head>
+<body>
+  <header>
+    <%- include('navbar', { page: 'input' }) %>
+  </header>
+  <main>
+    <div class="container">
+      <form id="deviceForm" action="/device/save" method="POST" class="form-container">
+        <div class="parent-info">
+          <h1>Input Device Info</h1>
+          <label for="customerName">Customer Name:</label>
+          <input type="text" id="customerName" name="customerName" required><br><br>
+
+          <label for="trackingNumber">Tracking Number:</label>
+          <input type="text" id="trackingNumber" name="trackingNumber" required><br><br>
+
+          <label for="dateAccepted">Date Accepted:</label>
+          <input type="date" id="dateAccepted" name="dateAccepted" required><br><br>
+
+          <label>What is customer sending?</label><br>
+          <div class="radio-group">
+            <label for="sendingDevices">Devices</label>
+            <input type="radio" id="sendingDevices" name="sendingType" value="devices" required>
+          </div>
+          <div class="radio-group">
+            <label for="sendingScreens">Screens</label>
+            <input type="radio" id="sendingScreens" name="sendingType" value="screens" required>
+          </div><br>
+
+          <div id="numberOfDevicesContainer" style="display: none;">
+            <label for="numberOfDevices">Number of Devices:</label>
+            <input type="number" id="numberOfDevices" name="numberOfDevices"><br><br>
+          </div>
+
+          <div id="numberOfScreensContainer" style="display: none;">
+            <label for="numberOfScreens">Number of Screens:</label>
+            <input type="number" id="numberOfScreens" name="numberOfScreens"><br><br>
+          </div>
+
+          <button type="submit">Submit</button>
+        </div>
+        <div id="devicesContainer" class="devices-grid"></div>
+        <div id="screensContainer" class="devices-grid" style="display: none;"></div>
+      </form>
+    </div>
+  </main>
+  <footer>
+    <p>© 2024 PHONEGLASSREPAIR. All rights reserved.</p>
+  </footer>
+  <script src="/main.js"></script>
+</body>
+</html>

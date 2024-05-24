@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="/styles.css">
+  <title>Search Device</title>
+</head>
+<body>
+  <header>
+    <%- include('navbar', { page: 'search' }) %>
+  </header>
+  <main>
+    <div class="container">
+      <h1>Search Device</h1>
+      <form action="/device/search" method="POST" class="form-container">
+        <label for="imei">IMEI:</label>
+        <input type="text" id="imei" name="imei" required>
+        <button type="submit">Search</button>
+      </form>
+    </div>
+  </main>
+  <footer>
+    <p>© 2024 PHONEGLASSREPAIR. All rights reserved.</p>
+  </footer>
+</body>
+</html>

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Print Screen QR Code</title>
+  <style>
+    @media print {
+      body, html {
+        margin: 0;
+        padding: 0;
+        width: 1in;
+        height: 0.5in;
+        display: flex;
+        justify-content: flex-start; /* Align content to the left */
+        align-items: center;
+      }
+      .print-container {
+        width: 1in;
+        height: 0.5in;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: flex-start; /* Align content to the left */
+        padding-left: 0.05in; /* Add some padding if necessary */
+      }
+      .qr-code img {
+        width: 0.25in; /* Adjust the width to fit within the label */
+        height: auto;
+      }
+      .customer-initials {
+        margin-left: 5px;
+        font-size: 8px; /* Adjust the font size to fit within the label */
+        text-align: left;
+      }
+      .customer-initials p {
+        margin: 0;
+        padding: 0;
+      }
+      @page {
+        size: 1in 0.5in;
+        margin: 0;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="print-container">
+    <div class="qr-code">
+      <img src="<%= qrCodeDataURL %>" alt="QR Code">
+    </div>
+    <div class="customer-initials">
+      <p><%= customerInitials %></p>
+    </div>
+  </div>
+  <script>
+    window.onload = () => {
+      window.print();
+    };
+  </script>
+</body>
+</html>

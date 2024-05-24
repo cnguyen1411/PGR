@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="/styles.css">
+  <title>Home</title>
+</head>
+<body>
+  <header>
+    <%- include('navbar', { page: 'home', user: user }) %>
+  </header>
+  <main>
+    <div class="container">
+      <h1>Welcome to the PHONE GLASS REPAIR ORDER MANAGEMENT</h1>
+      <% if (!user) { %>
+        <p>PLEASE LOG IN TO USE SYSTEM</p>
+        <a class="button-link" href="/auth/login">Click here to sign in</a>
+      <% } else { %>
+        <p>Welcome back, <%= user.username %>!</p>
+      <% } %>
+    </div>
+  </main>
+  <footer>
+    <p>© 2024 PHONEGLASSREPAIR. All rights reserved.</p>
+  </footer>
+</body>
+</html>

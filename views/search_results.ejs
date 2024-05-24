@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="/styles.css">
+  <title>Search Results</title>
+</head>
+<body>
+  <header>
+    <%- include('navbar', { page: 'search' }) %>
+  </header>
+  <main>
+  <div class="container">
+    <div class="table-container">
+      <h1>Search Results</h1>
+      <% if (results.length === 0) { %>
+        <p>No results found</p>
+      <% } else { %>
+        <table>
+          <thead>
+            <tr>
+              <th>Customer Name</th>
+              <th>Tracking Number</th>
+              <th>Date Accepted</th>
+              <th>Brand</th>
+              <th>Model</th>
+              <th>Storage</th>
+              <th>IMEI/Serial Number</th>
+              <th>Color</th>
+            </tr>
+          </thead>
+          <tbody>
+            <% results.forEach(result => { %>
+              <tr>
+                <td><%= result.customerName %></td>
+                <td><%= result.trackingNumber %></td>
+                <td><%= result.dateAccepted %></td>
+                <td><%= result.brand %></td>
+                <td><%= result.model %></td>
+                <td><%= result.storage %></td>
+                <td><%= result.imei %></td>
+                <td><%= result.color %></td>
+              </tr>
+            <% }); %>
+          </tbody>
+        </table>
+      <% } %>
+      <a class="button-link-back" href="/device/search_screen">Back to Search</a>
+    </div>
+  </div>
+</main>
+<footer>
+  <p>© 2024 PHONEGLASSREPAIR. All rights reserved.</p>
+</footer>
+</body>
+</html>

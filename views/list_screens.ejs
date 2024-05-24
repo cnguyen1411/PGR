@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="/styles.css">
+  <title>Show All Screens</title>
+</head>
+<body>
+  <header>
+    <%- include('navbar') %>
+  </header>
+  <main>
+    <div class="container">
+      <h1>Screen List</h1>
+      <table>
+        <thead>
+          <tr>
+            <th>Customer Name</th>
+            <th>Tracking Number</th>
+            <th>Date Accepted</th>
+            <th>Model</th>
+            <th>Quantity</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% results.forEach(screen => { %>
+            <tr>
+              <td><%= screen.customerName %></td>
+              <td><%= screen.trackingNumber %></td>
+              <td><%= screen.dateAccepted %></td>
+              <td><%= screen.model %></td>
+              <td><%= screen.quantity %></td>
+              <td>
+                <a class="button-link" href="/device/print_screen/<%= screen.model %>/<%= screen.trackingNumber %>" target="_blank">Print</a>
+              </td>
+            </tr>
+          <% }) %>
+        </tbody>
+      </table>
+    </div>
+  </main>
+  <footer>
+    <p>&copy; 2024 PHONEGLASSREPAIR. All rights reserved.</p>
+  </footer>
+</body>
+</html>
